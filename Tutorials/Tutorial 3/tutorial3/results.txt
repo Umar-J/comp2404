@@ -1,0 +1,114 @@
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+Running: ./test
+
+0: basicEventTest
+1: testprint
+2: testprintOrder
+Enter choice: 
+
+Testing Event print
+
+Title:       Tutorial
+Description: Program C++
+Start Time:  10
+Duration:    2
+
+Event::print test passed
+
+
+Testing Event::lessThan
+
+Title:       Lecture
+Description: Learn C++
+Start Time:  8
+Duration:    2
+
+Should be less than
+
+Title:       Tutorial
+Description: Program C++
+Start Time:  10
+Duration:    2
+Event::lessThan tests passed
+
+Running: ./test
+
+0: basicEventTest
+1: testprint
+2: testprintOrder
+Enter choice: 
+
+Testing PlannerDate::equals(Date& d)
+
+PlannerDate::equals(Date& d) passed
+
+Testing PlannerDate::lessThan(Date& d)
+
+PlannerDate::lessThan(Date& d) passed
+
+Testing PlannerDate::addEvent and print
+
+Printing the PlannerDate:
+Title:       Lab
+Description: Ask questions
+Start Time:  6
+Duration:    1
+Title:       Lecture
+Description: Learn C++
+Start Time:  8
+Duration:    1
+Title:       Assignment
+Description: Make assignment - no segfaults
+Start Time:  9
+Duration:    1
+Title:       Tutorial
+Description: Program C++
+Start Time:  10
+Duration:    1
+
+Searching output...
+
+PlannerDate::addEvent and print passed
+
+
+Running: ./test
+
+0: basicEventTest
+1: testprint
+2: testprintOrder
+Enter choice: 
+
+Testing PlannerDate::addEvent and print in order
+
+Printing the PlannerDate:
+Title:       Lab
+Description: Ask questions
+Start Time:  6
+Duration:    1
+Title:       Lecture
+Description: Learn C++
+Start Time:  8
+Duration:    1
+Title:       Assignment
+Description: Make assignment - no segfaults
+Start Time:  9
+Duration:    1
+Title:       Tutorial
+Description: Program C++
+Start Time:  10
+Duration:    1
+PlannerDate::addEvent and print in order passed
+
+
+Tutorial is late, 10% penalty
+
+
+***************************************************************************
+* Mark: 5.4/6
+***************************************************************************
+

@@ -1,0 +1,232 @@
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+
+Testing stack object array
+
+Executing: valgrind ./test
+Running:  ['valgrind', './test']
+Enter one of the following options: 
+0. Test StackArrays::getObjectArray
+1. Test StackArrays::getPointerArray
+2. Test HeapArrays::getObjectArray
+3. Test HeapArrays::getPointerArray
+Messenger
+5 stars
+RCMP warns you to not copy anything lolpicture
+  ___
+ / _ \
+| (_) |
+ \___/
+
+GTA
+5 stars
+RCMP warns you to not copy anything lolpicture
+  ,--.
+ /  0 \
+|   .  |
+ \___/
+
+iTunes
+5 stars
+RCMP warns you to not copy anything lolpicture
+  ,--.
+ /  0 \
+|   |  |
+ \___/
+
+
+==3147== Memcheck, a memory error detector
+==3147== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==3147== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==3147== Command: ./test
+==3147== 
+==3147== 
+==3147== HEAP SUMMARY:
+==3147==     in use at exit: 0 bytes in 0 blocks
+==3147==   total heap usage: 30 allocs, 30 frees, 82,594 bytes allocated
+==3147== 
+==3147== All heap blocks were freed -- no leaks are possible
+==3147== 
+==3147== For lists of detected and suppressed errors, rerun with: -s
+==3147== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+'Messenger' found, 2 marks
+'GTA' found, 2 marks
+'iTunes' found, 2 marks
+'picture' found, 2 marks
+'All heap blocks were freed -- no leaks are possible' found, 2 marks
+
+Testing stack pointer array
+
+Executing: valgrind ./test
+Running:  ['valgrind', './test']
+Enter one of the following options: 
+0. Test StackArrays::getObjectArray
+1. Test StackArrays::getPointerArray
+2. Test HeapArrays::getObjectArray
+3. Test HeapArrays::getPointerArray
+App
+5 stars
+RCMP warns you to not copy anything lolRCMP warns you to not copy anything lolpicture
+  ___
+ / _ \
+| (_) |
+ \___/
+
+Title
+5 stars
+RCMP warns you to not copy anything lolRCMP warns you to not copy anything lolpicture
+  ,--.
+ /  0 \
+|   .  |
+ \___/
+
+Here
+5 stars
+RCMP warns you to not copy anything lolRCMP warns you to not copy anything lolpicture
+  ,--.
+ /  0 \
+|   |  |
+ \___/
+
+
+==3169== Memcheck, a memory error detector
+==3169== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==3169== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==3169== Command: ./test
+==3169== 
+==3169== 
+==3169== HEAP SUMMARY:
+==3169==     in use at exit: 0 bytes in 0 blocks
+==3169==   total heap usage: 30 allocs, 30 frees, 82,594 bytes allocated
+==3169== 
+==3169== All heap blocks were freed -- no leaks are possible
+==3169== 
+==3169== For lists of detected and suppressed errors, rerun with: -s
+==3169== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+'App' found, 2 marks
+'Title' found, 2 marks
+'Here' found, 2 marks
+'RCMP' found, 2 marks
+'All heap blocks were freed -- no leaks are possible' found, 2 marks
+
+Testing heap object array
+
+Executing: valgrind ./test
+Running:  ['valgrind', './test']
+Enter one of the following options: 
+0. Test StackArrays::getObjectArray
+1. Test StackArrays::getPointerArray
+2. Test HeapArrays::getObjectArray
+3. Test HeapArrays::getPointerArray
+Messenger
+5 stars
+RCMP warns you to not copy anything lolpicture
+  ___
+ / _ \
+| (_) |
+ \___/
+
+GTA
+5 stars
+RCMP warns you to not copy anything lolpicture
+  ,--.
+ /  0 \
+|   .  |
+ \___/
+
+iTunes
+5 stars
+RCMP warns you to not copy anything lolpicture
+  ,--.
+ /  0 \
+|   |  |
+ \___/
+
+
+==3191== Memcheck, a memory error detector
+==3191== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==3191== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==3191== Command: ./test
+==3191== 
+==3191== 
+==3191== HEAP SUMMARY:
+==3191==     in use at exit: 0 bytes in 0 blocks
+==3191==   total heap usage: 32 allocs, 32 frees, 82,914 bytes allocated
+==3191== 
+==3191== All heap blocks were freed -- no leaks are possible
+==3191== 
+==3191== For lists of detected and suppressed errors, rerun with: -s
+==3191== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+'Messenger' found, 2 marks
+'GTA' found, 2 marks
+'iTunes' found, 2 marks
+'picture' found, 2 marks
+'All heap blocks were freed -- no leaks are possible' found, 2 marks
+
+Testing heap pointer array
+
+Executing: valgrind ./test
+Running:  ['valgrind', './test']
+Enter one of the following options: 
+0. Test StackArrays::getObjectArray
+1. Test StackArrays::getPointerArray
+2. Test HeapArrays::getObjectArray
+3. Test HeapArrays::getPointerArray
+App
+5 stars
+RCMP warns you to not copy anything lolRCMP warns you to not copy anything lolpicture
+  ___
+ / _ \
+| (_) |
+ \___/
+
+Title
+5 stars
+RCMP warns you to not copy anything lolRCMP warns you to not copy anything lolpicture
+  ,--.
+ /  0 \
+|   .  |
+ \___/
+
+Here
+5 stars
+RCMP warns you to not copy anything lolRCMP warns you to not copy anything lolpicture
+  ,--.
+ /  0 \
+|   |  |
+ \___/
+
+
+==3213== Memcheck, a memory error detector
+==3213== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==3213== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==3213== Command: ./test
+==3213== 
+==3213== 
+==3213== HEAP SUMMARY:
+==3213==     in use at exit: 0 bytes in 0 blocks
+==3213==   total heap usage: 32 allocs, 32 frees, 82,914 bytes allocated
+==3213== 
+==3213== All heap blocks were freed -- no leaks are possible
+==3213== 
+==3213== For lists of detected and suppressed errors, rerun with: -s
+==3213== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+'App' found, 2 marks
+'Title' found, 2 marks
+'Here' found, 2 marks
+'RCMP' found, 2 marks
+'All heap blocks were freed -- no leaks are possible' found, 2 marks
+
+
+***************************************************************************
+* Mark: 40/40
+***************************************************************************
+

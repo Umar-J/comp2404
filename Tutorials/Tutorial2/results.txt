@@ -1,0 +1,35 @@
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+Running: ./p1
+
+Enter name, health, damage for Fighter character
+Enter name, health, damage for Orc character
+The name is: Thor and the health is: 12
+The name is: Snarl and the health is: 10
+Thor hit Snarl for 2 damage! 
+Snarl hit Thor for 0 damage! 
+The name is: Thor and the health is: 12
+The name is: Snarl and the health is: 8
+Thor hit Snarl for 0 damage! 
+Snarl hit Thor for 2 damage! 
+The name is: Thor and the health is: 10
+The name is: Snarl and the health is: 8
+
+Thor found,  2  marks
+Snarl found,  2  marks
+12 found,  2  marks
+10 found,  2  marks
+12 found,  2  marks
+8 found,  2  marks
+10 found,  2  marks
+8 found,  2  marks
+
+
+***************************************************************************
+* Mark: 16/16
+***************************************************************************
+
