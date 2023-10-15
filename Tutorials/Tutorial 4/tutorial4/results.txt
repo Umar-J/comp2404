@@ -9,7 +9,7 @@ Testing stack object array
 
 Executing: valgrind ./test
 Running:  ['valgrind', './test']
-Enter one of the following options: 
+Enter one o f the following options: 
 0. Test StackArrays::getObjectArray
 1. Test StackArrays::getPointerArray
 2. Test HeapArrays::getObjectArray
