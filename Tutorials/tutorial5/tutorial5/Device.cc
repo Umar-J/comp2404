@@ -11,7 +11,6 @@ Device::~Device()
 {
     for (int i =0; i < appArray.size(); i++){
         delete (appArray.get(i));
-        cout<<"deleting device dtor"<<endl;
     }
 }
 
@@ -20,14 +19,14 @@ bool Device::addApp(App app)
     if(appArray.isFull()){
         return false;
     }else{
-        App *copyApp = new App(app);
-        return appArray.add(copyApp);
+        return appArray.add(&app);
     }
 }
 
 bool Device::deleteApp(string title)
 {
-    if(appArray.remove(title)){
+    if(App* hello = appArray.remove(title)){
+        delete hello;
         return true;
     }
     return false;
@@ -36,15 +35,15 @@ bool Device::deleteApp(string title)
 void Device::cloneApps(Device d)
 {
     //clear the thing
-    for (int i =0; i < appArray.size(); i++){
-        delete (appArray.remove(i));
-    }
+  while(appArray.size() > 0) {
+    delete appArray.remove(0);
+  }
     //add apps from device
     for (int i =0; i < d.appArray.size(); i++){
-        App* toCopy = new App(* (d.appArray.get(i)));
-        appArray.add(toCopy);
+        appArray.add(d.appArray.get(i));
     }
 }
+
 
 void Device::print()
 {

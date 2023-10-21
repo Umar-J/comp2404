@@ -8,37 +8,19 @@ AppArray::AppArray(){
 
 
 AppArray::~AppArray(){
+//   for (int i = 0; i < numApps; i++) {
+//     delete apps[i];
+//   }
 	delete [] apps;
+
 }
 
 
 bool AppArray::add(App* app){
 	if (isFull()) return false;
-	apps[numApps] = app;
+	apps[numApps] = new App(*app);
 	numApps++;
 	return true;
-
-
-	/*
-	for (int i = size; i > 0 ; --i){
-        if (app->lessThan(*elements[i-1])){
-            //keep making space by copying elements
-            //one location to the right
-            elements[i]=elements[i-1];
-        }else{
-            //we have found where s should go
-            elements[i] = app;
-            ++size;
-            return true;
-        }
-    }
-
-    //we went through every location, and s was less than 
-    //all of them. Therefore s goes in location 0
-    elements[0] = app;
-    ++size;
-    return true;
-	*/
 }
 
 App* AppArray::remove(const string& title){
