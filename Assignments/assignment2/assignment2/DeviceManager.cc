@@ -56,6 +56,7 @@ bool DeviceManager::cloneDevice(int cloneTo, int cloneFrom)
         cout<<"device does not exist there"<<endl;
         return false;
     }else{
+        cout<<"Neither are null"<<endl;
         copyTo->cloneApps(*copyFrom);
         return true;
     }

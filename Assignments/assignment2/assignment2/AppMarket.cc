@@ -13,12 +13,10 @@ void AppMarket::addApp(const string &title, const string &description, const str
 void AppMarket::deleteApp(int index)
 {
     App* goner = arrayOfApps.remove(index); // will get null if fails
-
     if(goner!= NULL){
         delete goner;
     }else{
         cout<<"error, could not remove app"<<endl;
-        //delete goner??????????????????????????????
     }
 }
 

@@ -40,7 +40,7 @@ App* AppArray::remove(const string& title){
 	}
 	--numApps;
 	return goner;
-}
+}//does not free memory
 
 App* AppArray::remove(int i){
 	if (i < 0 || i >= numApps) return nullptr;

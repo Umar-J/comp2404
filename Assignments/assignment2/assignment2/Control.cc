@@ -123,16 +123,42 @@ void Control::addAppsToDevice(){
 }
 
 void Control::deleteApp(){
-    
+    int appNumber;
+    printApps();
+    cout<<"Please make a selection: "<<endl;
+    cin>>appNumber;
+    cout<<"Deleting App... "<<endl;
+    App* goner = appMarket.getApp(appNumber);
+    string appTitle = goner->getTitle();
+    appMarket.deleteApp(appNumber); // if deepcopy then devices still have apps
+    cout<<"App "<<appTitle<<" deleted"<<endl;
+    //print what appp deleted
 }
 
 void Control::deleteDevice(){
-   
+    int deviceNumber;
+    printDevices();
+    cout<<"Please make a selection: "<<endl;
+    cin>>deviceNumber;
+    cout<<"Deleting device... "<<endl;
+    Device* goner = deviceManager.getDevice(deviceNumber);
+    deviceManager.deleteDevice(deviceNumber); 
+    cout<<"device "<<goner->getName()<<" deleted"<<endl;
+    //print what device deleted
 }
 
 void Control::cloneDevice(){
-    
-   
+    int cloneFrom;
+    int cloneTo;
+    printDevices();
+    cout<<"Enter index to clone from: Please Make a selection: "<<endl;
+    cin>>cloneFrom;
+    printDevices();
+    cout<<"Enter index to clone to: Please Make a selection: "<<endl;
+    cin>> cloneTo;
+    deviceManager.cloneDevice(cloneTo, cloneFrom);
+    //device to cloned
+    cout<<"device "<< deviceManager.getDevice(cloneTo)->getName()<<" cloned"<<endl;
 }
 
 #define NUM_DEVICES 4
