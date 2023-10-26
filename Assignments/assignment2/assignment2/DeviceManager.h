@@ -1,11 +1,15 @@
 //cout message if somethbing fi
 //has multiple devices
+#ifndef DEVICEMANAGER_H
+#define DEVICEMANAGER_H
+
 #include "DeviceArray.h"
 #include "Device.h"
 
-class Devicemanager{
+
+class DeviceManager{
     public:
-        
+
         bool addDevice(const string& name,const string& deviceType, const string& os);
         bool deleteDevice(int index);
         Device* getDevice(int index) const;
@@ -16,3 +20,4 @@ class Devicemanager{
         DeviceArray arrayOfDevices;
 
 };
+#endif

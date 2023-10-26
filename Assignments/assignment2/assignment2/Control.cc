@@ -86,6 +86,7 @@ void Control::printAppDetails(){
 }
 
 void Control::printDeviceDetails(){
+
     
 }
 
@@ -102,6 +103,7 @@ void Control::deleteDevice(){
 }
 
 void Control::cloneDevice(){
+    cout<<"here lmao"<<endl;
    
 }
 

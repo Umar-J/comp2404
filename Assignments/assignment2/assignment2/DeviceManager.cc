@@ -2,7 +2,8 @@
 
 // cout message if somethbing fails
 
-bool Devicemanager::addDevice(const string &name, const string &deviceType, const string &os)
+
+bool DeviceManager::addDevice(const string &name, const string &deviceType, const string &os)
 {
     Device* toAdd = new Device(name, deviceType, os);
     if(arrayOfDevices.add(toAdd)){//added pointer - so it takes care of the memory
@@ -14,12 +15,15 @@ bool Devicemanager::addDevice(const string &name, const string &deviceType, cons
 
 }
 
-bool Devicemanager::deleteDevice(int index)
+bool DeviceManager::deleteDevice(int index)
 {
+    cout<<"in deleteDevice()"<<endl;
     Device* goner = arrayOfDevices.remove(index); // will get null if fails
+    cout<<"passed this part"<<endl;
 
     if(goner!= NULL){
-        delete goner;
+        //delete goner;
+        
         return true;
     }else{
         cout<<"error, could not remove device"<<endl;
@@ -29,7 +33,7 @@ bool Devicemanager::deleteDevice(int index)
    
 }
 
-Device* Devicemanager::getDevice(int index) const
+Device* DeviceManager::getDevice(int index) const
 {
     if ( arrayOfDevices.get(index) != nullptr){
         return arrayOfDevices.get(index);
@@ -41,10 +45,11 @@ Device* Devicemanager::getDevice(int index) const
    
 }
 
-bool Devicemanager::cloneDevice(int cloneTo, int cloneFrom)
+bool DeviceManager::cloneDevice(int cloneTo, int cloneFrom)
 {
     // clone from 1 to 2
     //this.cloneApps(Device) void
+    cout<<"in clonedevice()"<<endl;
     Device * copyTo =  arrayOfDevices.get(cloneTo);
     Device * copyFrom = arrayOfDevices.get(cloneFrom);
     if (copyFrom == nullptr || copyTo == nullptr){
@@ -57,13 +62,13 @@ bool Devicemanager::cloneDevice(int cloneTo, int cloneFrom)
 
 }
 
-void Devicemanager::printDevices() const
+void DeviceManager::printDevices() const
 {
     //if(arrayOfDevices.size > 0);
     arrayOfDevices.print();   
 }
 
-void Devicemanager::printDeviceDetails(int index) const
+void DeviceManager::printDeviceDetails(int index) const
 {
     Device * toPrint = getDevice(index);
     if (toPrint != nullptr){

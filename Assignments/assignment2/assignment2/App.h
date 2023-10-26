@@ -10,7 +10,9 @@ class App{
     public:
         App(const string& title, const string& description, const string& icon);
         App();
-        App(App&);
+        App(const App&);
+        App(App& cApp); //shouldnt be here
+        //App(App*);
         string getTitle(){return title;};
         bool equals(string title);
         void print();

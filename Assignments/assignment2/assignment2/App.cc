@@ -12,11 +12,23 @@ App::App(){
     icon = "";
 }
 
-App::App(App & cApp){
+App::App(const App& cApp){
     this->title = cApp.title;
     this->description = cApp.description;
     this->icon = "RCMP warns you to not copy anything lol" + cApp.icon;
 }
+App::App(App& cApp){
+    this->title = cApp.title;
+    this->description = cApp.description;
+    this->icon = "RCMP warns you to not copy anything lol" + cApp.icon;
+}
+
+// App::App(App *cApp)
+// {
+//     this->title = cApp->title;
+//     this->description = cApp->description;
+//     this->icon = "RCMP warns you to not copy anything lol" + cApp->icon;
+// }
 
 bool App::equals(string title){
     if (this->title == title){return true;}
