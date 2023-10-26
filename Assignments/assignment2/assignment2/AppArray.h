@@ -27,6 +27,7 @@ class AppArray {
 		App* remove(int);
 		int size() const;
 		bool isFull() const;
+		void print() const;
 	
 	private:
 		int numApps;
