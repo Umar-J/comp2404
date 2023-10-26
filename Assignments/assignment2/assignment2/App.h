@@ -10,22 +10,15 @@ class App{
     public:
         App(const string& title, const string& description, const string& icon);
         App();
-        App(const App&);
-        App(App& cApp); //shouldnt be here
-        //App(App*);
-        string getTitle(){return title;};
-        bool equals(const string& title);
-        void print();
-        void printWithIcon();
-        
+        string getTitle() const{return title;};
+        bool equals(const string& title) const;
+        void print() const;
+        void printWithIcon() const;
 
     private:
         string title;
         string description;
         string icon;
 };
-
-
-
 
 #endif

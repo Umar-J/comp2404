@@ -14,7 +14,7 @@ Device::~Device()
     }
 }
 
-bool Device::addApp(App app)
+bool Device::addApp(const App app)
 {
     if(appArray.isFull()){
         return false;
@@ -23,7 +23,7 @@ bool Device::addApp(App app)
     }
 }
 
-bool Device::deleteApp(string title)
+bool Device::deleteApp(const string& title)
 {
     if(App* hello = appArray.remove(title)){
         delete hello;
@@ -32,7 +32,7 @@ bool Device::deleteApp(string title)
     return false;
 }
 
-void Device::cloneApps(Device d)
+void Device::cloneApps(const Device d)
 {
     //clear the thing
   while(appArray.size() > 0) {

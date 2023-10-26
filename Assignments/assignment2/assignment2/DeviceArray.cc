@@ -12,7 +12,7 @@ DeviceArray::~DeviceArray(){
 }
 
 
-bool DeviceArray::add(Device* device){
+bool DeviceArray::add(const Device* device){
 	if (isFull()) return false;
 	devices[numDevices] = new Device(*device);
 	numDevices++;

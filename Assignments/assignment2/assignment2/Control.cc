@@ -129,10 +129,12 @@ void Control::deleteApp(){
     cin>>appNumber;
     cout<<"Deleting App... "<<endl;
     App* goner = appMarket.getApp(appNumber);
+    if (goner!= nullptr){ //check if null
     string appTitle = goner->getTitle();
     appMarket.deleteApp(appNumber); // if deepcopy then devices still have apps
     cout<<"App "<<appTitle<<" deleted"<<endl;
     //print what appp deleted
+    }
 }
 
 void Control::deleteDevice(){

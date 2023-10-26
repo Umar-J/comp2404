@@ -14,7 +14,7 @@ AppArray::~AppArray(){
 }
 
 
-bool AppArray::add(App* app){
+bool AppArray::add(const App* app){
 	if (isFull()) return false;
 	apps[numApps] = new App(*app);
 	numApps++;

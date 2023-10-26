@@ -25,7 +25,7 @@ App *AppMarket::getApp(int index) const
     if (arrayOfApps.get(index) != nullptr){
         return arrayOfApps.get(index);
     }else{
-        cout<<"device does not exist there!"<<endl;
+        cout<<"App does not exist there!"<<endl;
         return nullptr;
     }
     return nullptr;

@@ -20,7 +20,7 @@ class AppArray {
 		~AppArray();
 		
 		//other
-		bool add(App*);
+		bool add(const App*);
 		App* get(int) const;
 		App* get(const string&) const;
 		App* remove(const string& title);
