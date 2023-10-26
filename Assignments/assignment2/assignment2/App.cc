@@ -15,12 +15,12 @@ App::App(){
 App::App(const App& cApp){
     this->title = cApp.title;
     this->description = cApp.description;
-    this->icon = "RCMP warns you to not copy anything lol" + cApp.icon;
+    this->icon = cApp.icon;
 }
 App::App(App& cApp){
     this->title = cApp.title;
     this->description = cApp.description;
-    this->icon = "RCMP warns you to not copy anything lol" + cApp.icon;
+    this->icon = cApp.icon;
 }
 
 // App::App(App *cApp)
@@ -30,18 +30,19 @@ App::App(App& cApp){
 //     this->icon = "RCMP warns you to not copy anything lol" + cApp->icon;
 // }
 
-bool App::equals(string title){
+bool App::equals(const string& title){
     if (this->title == title){return true;}
     return false;
 }
 
 void App::print(){
-    cout<<title<<endl;
-    cout<<description<<endl;
+    cout<<"Title: "<<title<<endl;
+    cout<<"Description: "<<description<<endl;
+    cout<<endl;
 }
 
 void App::printWithIcon(){
-    cout<<title<<endl;
-    cout<<description<<endl;
+    cout<<"Title: "<<title<<endl;
+    cout<<"Description: "<<description<<endl;
     cout<<icon<<endl;
 }

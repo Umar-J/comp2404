@@ -85,12 +85,40 @@ void Control::printAppDetails(){
     appMarket.printAppDetails(index);
 }
 
-void Control::printDeviceDetails(){
 
+void Control::printDeviceDetails(){
+//when they click 3
+// This function should perform similarly to print App Details, but it should show a Device.
+   printDevices();
+   int x = 0;
+   cout<<"Please Make a selection: "<<endl;
+   cin>>x;
+   //print detials of 3
+   //deviceManager.printDeviceDetails(x);
+   deviceManager.getDevice(x)->printWithApps();
     
 }
 
 void Control::addAppsToDevice(){
+    int deviceNum;
+    int appCount;
+    cout<<"Choose device to install on: "<<endl;
+    printDevices();
+    cout<<"Please make a selection: "<<endl;
+    cin>>deviceNum;
+    cout<<"how many apps are you installing? "<<endl<< "Please make a selection: "<<endl;
+    cin>>appCount;
+    int* apps = new int[appCount];
+    
+    printApps();
+    for (int i =0; i<appCount; i++){
+        cout<<"Please make a selection: "<<endl; 
+        cin>>apps[i];
+    }
+    //add the apps to the device
+    for (int i =0; i<appCount; i++){
+        deviceManager.getDevice(deviceNum)->addApp(*appMarket.getApp(apps[i]));
+    }
     
 }
 
@@ -103,7 +131,7 @@ void Control::deleteDevice(){
 }
 
 void Control::cloneDevice(){
-    cout<<"here lmao"<<endl;
+    
    
 }
 

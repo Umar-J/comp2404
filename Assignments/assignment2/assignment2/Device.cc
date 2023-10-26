@@ -47,9 +47,11 @@ void Device::cloneApps(Device d)
 
 void Device::print() const
 {
-    cout<<name<<endl;
-    cout<<deviceType<<endl;
-    cout<<os<<endl;
+    cout<<"Name: "<<name<<endl;
+    cout<<"Device Type: "<<deviceType<<endl;
+    cout<<"OS: "<<os<<endl;
+    cout<<"Apps: "<<appArray.size()<<endl;
+    cout<<endl;
 }
 
 void Device::printWithApps()const
@@ -57,7 +59,7 @@ void Device::printWithApps()const
     print();
     cout<<"apps are:"<<endl;
     for (int i =0; i < appArray.size(); i++){
-        appArray.get(i)->print();
+        appArray.get(i)->printWithIcon();
     }
 
 }

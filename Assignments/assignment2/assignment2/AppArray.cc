@@ -78,6 +78,7 @@ int AppArray::size() const{
 
 void AppArray::print() const{
 	for (int i = 0; i < numApps; ++i){
+		cout<<i<<": "<<endl;
 		apps[i]->print();
 	}
 }

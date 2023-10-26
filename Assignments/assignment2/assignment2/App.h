@@ -14,7 +14,7 @@ class App{
         App(App& cApp); //shouldnt be here
         //App(App*);
         string getTitle(){return title;};
-        bool equals(string title);
+        bool equals(const string& title);
         void print();
         void printWithIcon();
         

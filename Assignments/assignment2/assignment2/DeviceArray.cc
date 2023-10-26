@@ -76,6 +76,7 @@ int DeviceArray::size() const{
 
 void DeviceArray::print() const{
 	for (int i = 0; i < numDevices; ++i){
+		cout<<i<<":"<<endl;
 		devices[i]->print();
 	}
 }
