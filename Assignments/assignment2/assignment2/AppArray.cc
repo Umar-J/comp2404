@@ -3,35 +3,22 @@
 
 AppArray::AppArray(){
 	numApps = 0;
-	apps = new App*[MAX_ARRAY];
+	apps = new App*[MAX_ARRAY]; //dynamically allocated array of pointers
 }
 
 
 AppArray::~AppArray(){
+
 	delete [] apps;
+
 }
 
 
 bool AppArray::add(App* app){
 	if (isFull()) return false;
-	for (int i = size; i > 0 ; --i){
-        if (app->lessThan(*elements[i-1])){
-            //keep making space by copying elements
-            //one location to the right
-            elements[i]=elements[i-1];
-        }else{
-            //we have found where s should go
-            elements[i] = app;
-            ++size;
-            return true;
-        }
-    }
-
-    //we went through every location, and s was less than 
-    //all of them. Therefore s goes in location 0
-    elements[0] = app;
-    ++size;
-    return true;
+	apps[numApps] = new App(*app);
+	numApps++;
+	return true;
 }
 
 App* AppArray::remove(const string& title){

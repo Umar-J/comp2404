@@ -8,9 +8,7 @@ AppArray::AppArray(){
 
 
 AppArray::~AppArray(){
-//   for (int i = 0; i < numApps; i++) {
-//     delete apps[i];
-//   }
+
 	delete [] apps;
 
 }
