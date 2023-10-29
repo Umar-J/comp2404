@@ -367,7 +367,7 @@ int TestControl::testCloneDevice(){
     cout<<"Cloning above device to "<<deviceNames[deviceKeys[1]]<<endl;
     tester.pressEnterToContinue();
     tester.pressEnterToContinue(); 
-    dm.cloneDevice(deviceKeys[1], deviceKeys[0]);
+    dm.cloneDevice(deviceKeys[1], deviceKeys[0]); //cloning from 0 to 1
     cout<<"Printing clone device details"<<endl;
     tester.initCapture();
     dm.printDeviceDetails(deviceKeys[1]);

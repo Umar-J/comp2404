@@ -5,12 +5,14 @@ Device::Device(string name, string deviceType, string os)
     this->name = name;
     this->deviceType = deviceType;
     this->os = os;
+    AppArray appArray;
 }
 
 Device::~Device()
 {
-    for (int i =0; i < appArray.size(); i++){
-        delete (appArray.get(i));
+    for (int i = 0; i < appArray.size(); i++){
+        App* toDelete = appArray.get(i);
+        delete toDelete; 
     }
 }
 
@@ -19,14 +21,16 @@ bool Device::addApp(const App app)
     if(appArray.isFull()){
         return false;
     }else{
-        return appArray.add(&app);
+        App* copy = new App(app);
+        return appArray.add(copy);
     }
 }
 
 bool Device::deleteApp(const string& title)
 {
-    if(App* hello = appArray.remove(title)){
-        delete hello;
+    App* toRemove = appArray.remove(title);
+    if(toRemove){
+        delete toRemove;
         return true;
     }
     return false;
@@ -35,31 +39,38 @@ bool Device::deleteApp(const string& title)
 void Device::cloneApps(const Device d)
 {
     //clear the thing
-  while(appArray.size() > 0) {
-    delete appArray.remove(0);
+  for(int i = 0; i < appArray.size(); ++i) {
+        App* toClear = appArray.remove(0); //also clearing the memory
+        delete toClear;
   }
     //add apps from device (takes apps from d and puts it tho this)
     for (int i =0; i < d.appArray.size(); i++){
-        appArray.add(d.appArray.get(i));
+        App* appToCopy = d.appArray.get(i);
+        if(appToCopy){
+            App* appCopy = new App(*appToCopy);
+            addApp(*appCopy); //.add makes copy
+            delete(appCopy);
+        }
+
     }
 }
 
 
 void Device::print() const
 {
-    cout<<"Name: "<<name<<endl;
+    cout<<"Name:        "<<name<<endl;
     cout<<"Device Type: "<<deviceType<<endl;
-    cout<<"OS: "<<os<<endl;
-    cout<<"Apps: "<<appArray.size()<<endl;
+    cout<<"OS:          "<<os<<endl;
+    cout<<"Apps:        "<<appArray.size()<<endl;
     cout<<endl;
 }
 
 void Device::printWithApps()const
 {
     print();
-    cout<<"apps are:"<<endl;
+    cout<<"Printing apps: "<<endl;
     for (int i =0; i < appArray.size(); i++){
-        appArray.get(i)->printWithIcon();
+        appArray.get(i)->print();
     }
 
 }

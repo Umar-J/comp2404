@@ -119,7 +119,7 @@ void Control::addAppsToDevice(){
     for (int i =0; i<appCount; i++){
         deviceManager.getDevice(deviceNum)->addApp(*appMarket.getApp(apps[i]));
     }
-    
+    delete apps;
 }
 
 void Control::deleteApp(){
@@ -133,7 +133,7 @@ void Control::deleteApp(){
     string appTitle = goner->getTitle();
     appMarket.deleteApp(appNumber); // if deepcopy then devices still have apps
     cout<<"App "<<appTitle<<" deleted"<<endl;
-    //print what appp deleted
+    
     }
 }
 
@@ -144,9 +144,11 @@ void Control::deleteDevice(){
     cin>>deviceNumber;
     cout<<"Deleting device... "<<endl;
     Device* goner = deviceManager.getDevice(deviceNumber);
+    if (goner!= nullptr){
     deviceManager.deleteDevice(deviceNumber); 
     cout<<"device "<<goner->getName()<<" deleted"<<endl;
     //print what device deleted
+    }
 }
 
 void Control::cloneDevice(){

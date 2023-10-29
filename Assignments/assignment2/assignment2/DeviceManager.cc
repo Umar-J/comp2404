@@ -2,40 +2,44 @@
 
 // cout message if somethbing fails
 
+DeviceManager::DeviceManager(){
+    DeviceArray arrayOfDevices;
+}
+DeviceManager::~DeviceManager(){ //since we adding copies of each device, then need to deallocate them
+    for (int i=0; i< arrayOfDevices.size(); i++){
+        Device* deleteDevice = arrayOfDevices.get(i);
+        delete deleteDevice;
+    }
+}
 
-bool DeviceManager::addDevice(const string &name, const string &deviceType, const string &os)
-{
-    Device* toAdd = new Device(name, deviceType, os);
+bool DeviceManager::addDevice(const string &name, const string &deviceType, const string &os){
+    
+    Device* toAdd = new Device(name, deviceType, os); //need to delete these
     if(arrayOfDevices.add(toAdd)){//added pointer - so it takes care of the memory
         return true;
     } else{
         cout<<"error, could not add device"<<endl;
         return false;
     }
-
 }
 
-bool DeviceManager::deleteDevice(int index)
-{
-    cout<<"in deleteDevice()"<<endl;
-    Device* goner = arrayOfDevices.remove(index); // will get null if fails
-    cout<<"passed this part"<<endl;
-
-    if(goner!= NULL){
-        //delete goner;
-        
+bool DeviceManager::deleteDevice(int index){
+    if(arrayOfDevices.get(index)){
+        cout << "Device " << arrayOfDevices.get(index)->getName() << " deleted" << endl;
+        Device* deleteDevice = arrayOfDevices.remove(index);
+        cout<<"I am here"<<endl;
+        delete deleteDevice;
+        cout<<"now i am here"<<endl;
         return true;
     }else{
         cout<<"error, could not remove device"<<endl;
-        //delete goner??????????????????????????????
         return false;
-    }
-   
+    }   
 }
 
 Device* DeviceManager::getDevice(int index) const
 {
-    if ( arrayOfDevices.get(index) != nullptr){
+    if (arrayOfDevices.get(index)){
         return arrayOfDevices.get(index);
     }else{
         cout<<"device does not exist there!"<<endl;
@@ -45,34 +49,32 @@ Device* DeviceManager::getDevice(int index) const
    
 }
 
-bool DeviceManager::cloneDevice(int cloneTo, int cloneFrom)
-{
+bool DeviceManager::cloneDevice(int cloneTo, int cloneFrom){
     // clone from 1 to 2
-    //this.cloneApps(Device) void
-    cout<<"in clonedevice()"<<endl;
-    Device * copyTo =  arrayOfDevices.get(cloneTo);
-    Device * copyFrom = arrayOfDevices.get(cloneFrom);
-    if (copyFrom == nullptr || copyTo == nullptr){
-        cout<<"device does not exist there"<<endl;
-        return false;
-    }else{
-        cout<<"Neither are null"<<endl;
-        copyTo->cloneApps(*copyFrom);
+    if (arrayOfDevices.get(cloneFrom) && arrayOfDevices.get(cloneTo)){
+        cout << "Neither are null " << endl;
+        cout << "Cloning apps " << endl;
+        arrayOfDevices.get(cloneTo)->cloneApps(*arrayOfDevices.get(cloneFrom));
+        cout << "Device " << arrayOfDevices.get(cloneTo)->getName() <<" cloned" << endl;
         return true;
+    }else{
+        cout << "Could not find device to clone!" << endl;
+        return false;
     }
 
 }
 
 void DeviceManager::printDevices() const
 {
-    //if(arrayOfDevices.size > 0);
-    arrayOfDevices.print();   
+    cout << "Devices: " << endl;
+    for (int i = 0; i < arrayOfDevices.size(); i++){
+        cout << i << ": " << endl;
+        arrayOfDevices.get(i)->print();
+        cout << endl;
+    } 
 }
 
 void DeviceManager::printDeviceDetails(int index) const
 {
-    Device * toPrint = getDevice(index);
-    if (toPrint != nullptr){
-        toPrint->printWithApps();
-    }
+    arrayOfDevices.get(index)->printWithApps();
 }

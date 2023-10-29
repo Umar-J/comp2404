@@ -6,17 +6,13 @@ AppArray::AppArray(){
 	apps = new App*[MAX_ARRAY]; //dynamically allocated array of pointers
 }
 
-
 AppArray::~AppArray(){
-
 	delete [] apps;
-
 }
 
-
-bool AppArray::add(const App* app){
+bool AppArray::add(App* app){
 	if (isFull()) return false;
-	apps[numApps] = new App(*app);
+	apps[numApps] = app;
 	numApps++;
 	return true;
 }
@@ -76,9 +72,9 @@ int AppArray::size() const{
 	return numApps;
 }
 
-void AppArray::print() const{
-	for (int i = 0; i < numApps; ++i){
-		cout<<i<<": "<<endl;
-		apps[i]->print();
-	}
-}
+// void AppArray::print() const{
+// 	for (int i = 0; i < numApps; ++i){
+// 		cout<<i<<": "<<endl;
+// 		apps[i]->print();
+// 	}
+// }

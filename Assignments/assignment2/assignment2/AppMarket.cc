@@ -2,22 +2,36 @@
 
 // cout message if somethbing fails
 
-void AppMarket::addApp(const string &title, const string &description, const string &icon)
-{
-    App* toAdd = new App(title, description, icon);
-    if(!arrayOfApps.add(toAdd)){//added pointer - so it takes care of the memory
-        cout<<"error, could not add app"<<endl;
+AppMarket::AppMarket(){
+    AppArray arrayOfApps;
+}
+
+AppMarket::~AppMarket(){
+    for(int i = 0; i < arrayOfApps.size(); i++){
+        App* goner = arrayOfApps.get(i);
+        delete goner;
     }
 }
 
-void AppMarket::deleteApp(int index)
-{
-    App* goner = arrayOfApps.remove(index); // will get null if fails
-    if(goner!= NULL){
-        delete goner;
-    }else{
-        cout<<"error, could not remove app"<<endl;
+bool AppMarket::addApp(const string &title, const string &description, const string &icon){
+    App* toAdd = new App(title, description, icon); //delete
+    if (arrayOfApps.add(toAdd)){
+        cout << "New app added sucessfully!" << endl;
+        return true;
     }
+    cout<< "Unable to add new app!" << endl;
+    return false;
+}
+
+bool AppMarket::deleteApp(int index){
+    
+    if (arrayOfApps.get(index)){
+        cout << "App " << arrayOfApps.get(index)->getTitle() << " deleted " << endl;
+        delete arrayOfApps.remove(index);
+        return true;
+    }
+    cout << "Could not delete app!" << endl;
+    return false; 
 }
 
 App *AppMarket::getApp(int index) const
@@ -32,14 +46,15 @@ App *AppMarket::getApp(int index) const
 }
 void AppMarket::printApps() const
 {
-    //if(arrayOfDevices.size > 0);
-    arrayOfApps.print();   
+    cout<<"Apps:"<<endl;
+    for (int i = 0; i < arrayOfApps.size(); ++i){
+		cout<<i<<": "<<endl;
+		arrayOfApps.get(i)->print();
+        cout<<endl;
+	} 
 } 
 
 void AppMarket::printAppDetails(int index) const
 {
-    App* toPrint = getApp(index);
-    if (toPrint != nullptr){
-        toPrint->printWithIcon();
-    }
+    arrayOfApps.get(index)->printWithIcon();
 }

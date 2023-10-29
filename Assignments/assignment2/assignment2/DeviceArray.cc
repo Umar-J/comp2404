@@ -12,9 +12,9 @@ DeviceArray::~DeviceArray(){
 }
 
 
-bool DeviceArray::add(const Device* device){
+bool DeviceArray::add(Device* device){
 	if (isFull()) return false;
-	devices[numDevices] = new Device(*device);
+	devices[numDevices] = device;
 	numDevices++;
 	return true;
 }
@@ -37,7 +37,7 @@ Device* DeviceArray::remove(const string& title){
 		++index;
 	}
 	--numDevices;
-	return goner;
+	return goner; //return pointer to it (nneds to be deletd later)
 }
 
 Device* DeviceArray::remove(int i){
@@ -49,7 +49,7 @@ Device* DeviceArray::remove(int i){
 		++i;
 	}
 	--numDevices;
-	return goner;
+	return goner; //return pointer to it (nneds to be deletd later)
 }
 
 Device* DeviceArray::get(const string& title) const{
@@ -74,9 +74,9 @@ int DeviceArray::size() const{
 	return numDevices;
 }
 
-void DeviceArray::print() const{
-	for (int i = 0; i < numDevices; ++i){
-		cout<<i<<":"<<endl;
-		devices[i]->print();
-	}
-}
+// void DeviceArray::print() const{
+// 	for (int i = 0; i < numDevices; ++i){
+// 		cout<<i<<":"<<endl;
+// 		devices[i]->print();
+// 	}
+// }

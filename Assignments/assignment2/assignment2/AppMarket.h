@@ -6,8 +6,10 @@
 
 class AppMarket{
     public:
-        void addApp(const string& title, const string& description, const string & icon);
-        void deleteApp(int index);
+        AppMarket();
+        ~AppMarket();
+        bool addApp(const string& title, const string& description, const string & icon);
+        bool deleteApp(int index);
         App* getApp(int index) const;
         void printApps() const;
         void printAppDetails(int index) const;

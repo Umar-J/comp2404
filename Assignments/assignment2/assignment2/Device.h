@@ -25,7 +25,7 @@ class Device {
             return name;
         }
         bool equals(const string& cName) const{return cName == name;}
-        bool addApp(const App app); //come back to this
+        bool addApp(const App app);
         bool deleteApp(const string& title);
         void cloneApps(const Device);
         int numApps() const{return appArray.size();};

@@ -20,7 +20,7 @@ class DeviceArray {
 		~DeviceArray();
 		
 		//other
-		bool add(const Device*);
+		bool add(Device*);
 		Device* get(int) const;
 		Device* get(const string&) const;
 		Device* remove(const string& title);

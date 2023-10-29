@@ -13,18 +13,17 @@ App::App(){
 }
 
 bool App::equals(const string& title) const{
-    if (this->title == title){return true;}
-    return false;
+    return this->title == title;
 }
 
 void App::print() const {
-    cout<<"Title: "<<title<<endl;
+    cout<<"Title:       "<<title<<endl;
     cout<<"Description: "<<description<<endl;
     cout<<endl;
 }
 
 void App::printWithIcon() const{
-    cout<<"Title: "<<title<<endl;
+    cout<<"Title:       "<<title<<endl;
     cout<<"Description: "<<description<<endl;
     cout<<icon<<endl;
 }
