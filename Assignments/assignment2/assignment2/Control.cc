@@ -99,24 +99,21 @@ void Control::addAppsToDevice(){
     int appCount;
     cout<<"Choose device to install on: "<<endl;
     printDevices();
-    Device* addAppsTo = nullptr; 
-    while(addAppsTo == nullptr){
-        view.getNumber(deviceNum);
-        addAppsTo = deviceManager.getDevice(deviceNum);  
-    }
+    view.getNumber(deviceNum);
+    Device* addAppsTo = deviceManager.getDevice(deviceNum); 
+    if(!addAppsTo) return;
     cout<<"how many apps are you installing? "<<endl;
     view.getNumber(appCount);
     printApps();
     for (int i=0; i<appCount; i++){
         int appIndex;
         view.getNumber(appIndex);
-        cout << "Adding app to device... " << endl;
-        App* toAdd = nullptr;
-        toAdd = appMarket.getApp(appIndex);
+        App* toAdd = appMarket.getApp(appIndex);
         while(toAdd == nullptr){
             view.getNumber(appIndex);
             toAdd = appMarket.getApp(appIndex);
         }
+        cout << "Adding app to device... " << endl;
         deviceManager.getDevice(deviceNum)->addApp(*toAdd);
     }
 }
