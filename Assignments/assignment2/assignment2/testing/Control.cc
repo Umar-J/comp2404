@@ -103,26 +103,38 @@ void Control::addAppsToDevice(){
     int deviceNum;
     int appCount;
     cout<<"Choose device to install on: "<<endl;
-    printDevices(); 
-    view.getNumber(deviceNum);
+    printDevices();
+    cout<<"Please make a selection: "<<endl;
     cin>>deviceNum;
-    cout<<"how many apps are you installing? "<<endl;
-    view.getNumber(appCount);
+    cout<<"how many apps are you installing? "<<endl<< "Please make a selection: "<<endl;
+    cin>>appCount;
+    int* apps = new int[appCount];
+    
     printApps();
-    for (int i=0; i<appCount; i++){
-        int appIndex;
-        view.getNumber(appIndex);
-        cout << "Adding app to device... " << endl;
-        deviceManager.getDevice(deviceNum)->addApp(*appMarket.getApp(appIndex));
+    for (int i =0; i<appCount; i++){
+        cout<<"Please make a selection: "<<endl; 
+        cin>>apps[i];
     }
+    //add the apps to the device
+    for (int i =0; i<appCount; i++){
+        deviceManager.getDevice(deviceNum)->addApp(*appMarket.getApp(apps[i]));
+    }
+    delete apps;
 }
 
 void Control::deleteApp(){
+    int appNumber;
     printApps();
-    int appIndex;
-    view.getNumber(appIndex);
-    cout << "Deleting app..." << endl;
-    appMarket.deleteApp(appIndex);
+    cout<<"Please make a selection: "<<endl;
+    cin>>appNumber;
+    cout<<"Deleting App... "<<endl;
+    App* goner = appMarket.getApp(appNumber);
+    if (goner!= nullptr){ //check if null
+    string appTitle = goner->getTitle();
+    appMarket.deleteApp(appNumber); // if deepcopy then devices still have apps
+    cout<<"App "<<appTitle<<" deleted"<<endl;
+    
+    }
 }
 
 void Control::deleteDevice(){

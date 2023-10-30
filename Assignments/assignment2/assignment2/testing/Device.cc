@@ -18,9 +18,12 @@ Device::~Device()
 
 bool Device::addApp(const App app)
 {
-    if(appArray.isFull())return false;
-    App* copy = new App(app);
-    return appArray.add(copy);
+    if(appArray.isFull()){
+        return false;
+    }else{
+        App* copy = new App(app);
+        return appArray.add(copy);
+    }
 }
 
 bool Device::deleteApp(const string& title)
@@ -33,18 +36,22 @@ bool Device::deleteApp(const string& title)
     return false;
 }
 
-void Device::cloneApps(const Device& other){
-    for (int i = 0; i < appArray.size(); ++i) {
-        App* dApp = appArray.remove(0);
-        delete dApp;
-    }
-    for (int i = 0; i < other.appArray.size(); ++i) {
-        App* appToCopy = other.appArray.get(i);
-        if (appToCopy) {
-            App* appCopy = new App(*appToCopy); 
-            addApp(*appCopy);
-            delete appCopy;
+void Device::cloneApps(const Device d)
+{
+    //clear the thing
+  for(int i = 0; i < appArray.size(); ++i) {
+        App* toClear = appArray.remove(0); //also clearing the memory
+        delete toClear;
+  }
+    //add apps from device (takes apps from d and puts it tho this)
+    for (int i =0; i < d.appArray.size(); i++){
+        App* appToCopy = d.appArray.get(i);
+        if(appToCopy){
+            App* appCopy = new App(*appToCopy);
+            addApp(*appCopy); //.add makes copy
+            delete(appCopy);
         }
+
     }
 }
 
