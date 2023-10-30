@@ -90,15 +90,20 @@ void Control::printDeviceDetails(){
     int index;
     view.getNumber(index);
     cout << "Printing device details..." << endl;
-    deviceManager.printDeviceDetails(index);    
+    Device* printAppsOf = deviceManager.getDevice(index);
+    if(printAppsOf) printAppsOf->printWithApps();       
 }
 
 void Control::addAppsToDevice(){
     int deviceNum;
     int appCount;
     cout<<"Choose device to install on: "<<endl;
-    printDevices(); 
-    view.getNumber(deviceNum);
+    printDevices();
+    Device* addAppsTo = nullptr; 
+    while(addAppsTo == nullptr){
+        view.getNumber(deviceNum);
+        addAppsTo = deviceManager.getDevice(deviceNum);  
+    }
     cout<<"how many apps are you installing? "<<endl;
     view.getNumber(appCount);
     printApps();
@@ -106,7 +111,13 @@ void Control::addAppsToDevice(){
         int appIndex;
         view.getNumber(appIndex);
         cout << "Adding app to device... " << endl;
-        deviceManager.getDevice(deviceNum)->addApp(*appMarket.getApp(appIndex));
+        App* toAdd = nullptr;
+        toAdd = appMarket.getApp(appIndex);
+        while(toAdd == nullptr){
+            view.getNumber(appIndex);
+            toAdd = appMarket.getApp(appIndex);
+        }
+        deviceManager.getDevice(deviceNum)->addApp(*toAdd);
     }
 }
 

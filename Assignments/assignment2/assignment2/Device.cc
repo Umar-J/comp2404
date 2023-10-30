@@ -63,7 +63,6 @@ void Device::printWithApps()const
     print();
     cout<<"Printing apps: "<<endl;
     for (int i =0; i < appArray.size(); i++){
-        //appArray.get(i)->print();
         appArray.get(i)->printWithIcon();
         
     }
