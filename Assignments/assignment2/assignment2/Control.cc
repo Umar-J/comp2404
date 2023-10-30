@@ -85,18 +85,12 @@ void Control::printAppDetails(){
     appMarket.printAppDetails(index);
 }
 
-
 void Control::printDeviceDetails(){
-//when they click 3
-// This function should perform similarly to print App Details, but it should show a Device.
-   printDevices();
-   int x = 0;
-   cout<<"Please Make a selection: "<<endl;
-   cin>>x;
-   //print detials of 3
-   //deviceManager.printDeviceDetails(x);
-   deviceManager.getDevice(x)->printWithApps();
-    
+    printDevices();
+    int index;
+    view.getNumber(index);
+    cout << "Printing device details..." << endl;
+    deviceManager.printDeviceDetails(index);    
 }
 
 void Control::addAppsToDevice(){
@@ -105,7 +99,6 @@ void Control::addAppsToDevice(){
     cout<<"Choose device to install on: "<<endl;
     printDevices(); 
     view.getNumber(deviceNum);
-    cin>>deviceNum;
     cout<<"how many apps are you installing? "<<endl;
     view.getNumber(appCount);
     printApps();
@@ -128,29 +121,22 @@ void Control::deleteApp(){
 void Control::deleteDevice(){
     int deviceNumber;
     printDevices();
-    cout<<"Please make a selection: "<<endl;
-    cin>>deviceNumber;
+    view.getNumber(deviceNumber);
     cout<<"Deleting device... "<<endl;
-    Device* goner = deviceManager.getDevice(deviceNumber);
-    if (goner!= nullptr){
-    deviceManager.deleteDevice(deviceNumber); 
-    cout<<"device "<<goner->getName()<<" deleted"<<endl;
-    //print what device deleted
-    }
+    deviceManager.deleteDevice(deviceNumber);
 }
 
 void Control::cloneDevice(){
     int cloneFrom;
     int cloneTo;
     printDevices();
-    cout<<"Enter index to clone from: Please Make a selection: "<<endl;
-    cin>>cloneFrom;
+    cout<<"Enter index to clone from:"<<endl;
+    view.getNumber(cloneFrom);
     printDevices();
-    cout<<"Enter index to clone to: Please Make a selection: "<<endl;
-    cin>> cloneTo;
+    cout<<"Enter index to clone to:"<<endl;
+    view.getNumber(cloneTo);
+    cout << "Cloning apps" << endl;
     deviceManager.cloneDevice(cloneTo, cloneFrom);
-    //device to cloned
-    cout<<"device "<< deviceManager.getDevice(cloneTo)->getName()<<" cloned"<<endl;
 }
 
 #define NUM_DEVICES 4

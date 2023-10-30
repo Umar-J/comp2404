@@ -27,9 +27,7 @@ bool DeviceManager::deleteDevice(int index){
     if(arrayOfDevices.get(index)){
         cout << "Device " << arrayOfDevices.get(index)->getName() << " deleted" << endl;
         Device* deleteDevice = arrayOfDevices.remove(index);
-        cout<<"I am here"<<endl;
         delete deleteDevice;
-        cout<<"now i am here"<<endl;
         return true;
     }else{
         cout<<"error, could not remove device"<<endl;
