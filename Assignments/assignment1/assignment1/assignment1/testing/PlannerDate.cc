@@ -30,7 +30,7 @@ bool PlannerDate::lessThan(PlannerDate & p){
 bool PlannerDate::addEvent(string title, string description, int startTime, int duration) { 
     // Add the new event in sorted order
     if (numEvents < MAX_EVENTS) {
-        Event* newEvent = new Event(title, description, startTime, duration);
+        Event* newEvent = new Event(title, description, startTime, duration); //if this static then get delted at end of functionX
   // from start of list check if its lower than, if it is then put it there.
         int insertIndex = numEvents;
         for (int i = 0; i < numEvents; i++) {            

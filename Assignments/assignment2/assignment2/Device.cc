@@ -19,14 +19,14 @@ Device::~Device()
 bool Device::addApp(const App app)
 {
     if(appArray.isFull())return false;
-    App* copy = new App(app);
+    App* copy = new App(app); ;//add copy (coz if u delete the app from marketplace u shold still have in device)
     return appArray.add(copy);
 }
 
 bool Device::deleteApp(const string& title)
 {
     App* toRemove = appArray.remove(title);
-    if(toRemove){
+    if(toRemove){ //since apparray doesnt deallocate
         delete toRemove;
         return true;
     }
@@ -43,7 +43,8 @@ void Device::cloneApps(const Device& other){
         if (appToCopy) {
             App* appCopy = new App(*appToCopy); 
             addApp(*appCopy);
-            delete appCopy;
+            delete appCopy; //delete it since in the addappfuncitno it makes a copy of it anyways so this wont be used after the clone apps function
+                            //ie: the memory address made at this new ^ is not the one being stored in the array
         }
     }
 }

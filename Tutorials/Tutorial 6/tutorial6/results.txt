@@ -1,0 +1,145 @@
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+
+Correct order test
+
+Executing: ./test
+Which test would you like to run?
+  (0) Messages are in correct order in the List test.
+  (1) getMessagesWith(id) test
+  (2) removeMessagesWith(id) test
+Adding 5 Messages to list
+Adding (sender) From: C1
+(reciever) To: C1
+(message) Message: C1: Hello C1
+Adding (sender) From: C2
+(reciever) To: C1
+(message) Message: C1: Hello C2
+Adding (sender) From: C3
+(reciever) To: C1
+(message) Message: C1: Hello C3
+Adding (sender) From: C4
+(reciever) To: C1
+(message) Message: C2: Hello C1
+Adding (sender) From: C5
+(reciever) To: C1
+(message) Message: C2: Hello C2
+
+Removing 5 Messages from list
+Removing: (sender) From: C1
+(reciever) To: C1
+(message) Message: C1: Hello C1
+Removing: (sender) From: C2
+(reciever) To: C1
+(message) Message: C1: Hello C2
+Removing: (sender) From: C3
+(reciever) To: C1
+(message) Message: C1: Hello C3
+Removing: (sender) From: C4
+(reciever) To: C1
+(message) Message: C2: Hello C1
+Removing: (sender) From: C5
+(reciever) To: C1
+(message) Message: C2: Hello C2
+Removed successfully in message, deleting list, then deleting messages...
+
+
+Test passed
+
+Get messages with id test
+
+Executing: ./test
+Which test would you like to run?
+  (0) Messages are in correct order in the List test.
+  (1) getMessagesWith(id) test
+  (2) removeMessagesWith(id) test
+Getting messages with C1
+Printing messages with C1
+(sender) From: C1
+(reciever) To: C1
+(message) Message: C1: Hello C1
+(sender) From: C1
+(reciever) To: C2
+(message) Message: C1: Hello C2
+(sender) From: C1
+(reciever) To: C3
+(message) Message: C1: Hello C3
+(sender) From: C2
+(reciever) To: C1
+(message) Message: C2: Hello C1
+(sender) From: C3
+(reciever) To: C1
+(message) Message: C3: Hello C1
+All messages found
+
+Looking for extra messages...
+
+Did not find any extra messages
+
+
+
+Test passed
+
+Remove messages with id test
+
+Executing: ./test
+Which test would you like to run?
+  (0) Messages are in correct order in the List test.
+  (1) getMessagesWith(id) test
+  (2) removeMessagesWith(id) test
+Removing messages with C1
+passed this part
+Goner size (should be 5): 5
+Printing messages without C1
+(sender) From: C2
+(reciever) To: C2
+(message) Message: C2: Hello C2
+(sender) From: C2
+(reciever) To: C3
+(message) Message: C2: Hello C3
+(sender) From: C3
+(reciever) To: C2
+(message) Message: C3: Hello C2
+(sender) From: C3
+(reciever) To: C3
+(message) Message: C3: Hello C3
+List size (should be 4): 4
+All messages found
+
+Looking for extra messages...
+
+Did not find any extra messages
+
+Checking list of deleted messages (all messages with C1)
+
+(sender) From: C1
+(reciever) To: C1
+(message) Message: C1: Hello C1
+(sender) From: C1
+(reciever) To: C2
+(message) Message: C1: Hello C2
+(sender) From: C1
+(reciever) To: C3
+(message) Message: C1: Hello C3
+(sender) From: C2
+(reciever) To: C1
+(message) Message: C2: Hello C1
+(sender) From: C3
+(reciever) To: C1
+(message) Message: C3: Hello C1
+All deleted messages found
+Did not find any extra messages
+
+
+
+Test passed
+
+
+***************************************************************************
+* Mark: 6/4
+***************************************************************************
+

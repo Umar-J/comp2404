@@ -27,8 +27,7 @@ class DeviceArray {
 		Device* remove(int);
 		int size() const;
 		bool isFull() const;
-		void print() const;
-	
+
 	private:
 		int numDevices;
 		Device** devices;

@@ -14,7 +14,7 @@ DeviceArray::~DeviceArray(){
 
 bool DeviceArray::add(Device* device){
 	if (isFull()) return false;
-	devices[numDevices] = device;
+	devices[numDevices] = device; //not making a copy here
 	numDevices++;
 	return true;
 }
@@ -73,10 +73,3 @@ bool DeviceArray::isFull() const{
 int DeviceArray::size() const{
 	return numDevices;
 }
-
-// void DeviceArray::print() const{
-// 	for (int i = 0; i < numDevices; ++i){
-// 		cout<<i<<":"<<endl;
-// 		devices[i]->print();
-// 	}
-// }

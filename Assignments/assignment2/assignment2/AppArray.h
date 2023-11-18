@@ -27,10 +27,10 @@ class AppArray {
 		App* remove(int);
 		int size() const;
 		bool isFull() const;
-		void print() const;
+				
 	
 	private:
 		int numApps;
-		App** apps;
+		App** apps; //dynamic array of pointers (stores pointers)
 };
 #endif

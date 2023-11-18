@@ -14,8 +14,8 @@ DeviceManager::~DeviceManager(){ //since we adding copies of each device, then n
 
 bool DeviceManager::addDevice(const string &name, const string &deviceType, const string &os){
     
-    Device* toAdd = new Device(name, deviceType, os); //need to delete these
-    if(arrayOfDevices.add(toAdd)){//added pointer - so it takes care of the memory
+    Device* toAdd = new Device(name, deviceType, os); //makes copy of device, make sure that arrray doesnt make copy of it or else address will be lost
+    if(arrayOfDevices.add(toAdd)){//add the pointer, if copy added then this pointer will be dangling (no reference to the potiner)
         return true;
     } else{
         cout<<"error, could not add device"<<endl;

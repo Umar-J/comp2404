@@ -7,6 +7,7 @@ AppMarket::AppMarket(){
 }
 
 AppMarket::~AppMarket(){
+    //since the 'new' heap objects are being added to arrayOfApps.add(toAdd) then remove it form there aswell
     for(int i = 0; i < arrayOfApps.size(); i++){
         App* goner = arrayOfApps.get(i);
         delete goner;
@@ -14,7 +15,7 @@ AppMarket::~AppMarket(){
 }
 
 bool AppMarket::addApp(const string &title, const string &description, const string &icon){
-    App* toAdd = new App(title, description, icon); //delete
+    App* toAdd = new App(title, description, icon); // makes new app object and adds it to the array of apps
     if (arrayOfApps.add(toAdd)){
         cout << "New app added sucessfully!" << endl;
         return true;
@@ -25,7 +26,7 @@ bool AppMarket::addApp(const string &title, const string &description, const str
 
 bool AppMarket::deleteApp(int index){
     
-    if (arrayOfApps.get(index)){
+    if (arrayOfApps.get(index)){ //if index exitsts
         cout << "App " << arrayOfApps.get(index)->getTitle() << " deleted " << endl;
         delete arrayOfApps.remove(index);
         return true;

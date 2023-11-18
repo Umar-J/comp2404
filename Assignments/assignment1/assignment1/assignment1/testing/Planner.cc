@@ -12,12 +12,13 @@ Planner::Planner(){
     numPlans =0;
 }
 PlannerDate *Planner::getDate(Date& d){
+    //if exists then return
     for (int i =0;i<this->numPlans;i++){
         if (plans[i]->equals(d)){
             return plans[i];
         }
     }
-
+    //else make it
     if (numPlans < MAX_EVENTS){
         PlannerDate* nDate = new PlannerDate(d); //mem leak
         //sort the inserts
@@ -36,7 +37,7 @@ PlannerDate *Planner::getDate(Date& d){
     }
 
 // Insert the new date at the correct position
-    plans[insertIndex] = nDate;
+    plans[insertIndex] = nDate; //nDate is dynamically allocated (delete FROM THIS INDEX in desctuctor)
     numPlans++;
         return nDate;
     }else{
