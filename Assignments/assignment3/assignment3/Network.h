@@ -22,16 +22,17 @@ class Network {
         void resetIds() const;
         void printTowers() const;
         void printCellPhones() const;
-        CellPhone *getCellphone(const string &id, vector<CellPhone *> cellPhones);
-        Tower* getTower(const string& id, vector<Tower*> towers);
-        Tower *getClosestTower(const Location &) const;
+
 
     private:
-        //use composition
         // ds for towers
         vector <Tower*> towers; 
         // ds for cellphones
         vector <CellPhone*> cellPhones;
+        Tower* getTower(const string& id, const vector<Tower*> towers) const;
+        Tower *getClosestTower(const Location &) const;
+        CellPhone *getCellphone(const string &id, const vector<CellPhone *> cellPhones) const;
+
         
     
 };

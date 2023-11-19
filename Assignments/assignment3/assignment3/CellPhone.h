@@ -22,4 +22,5 @@ class CellPhone: public Entity {
         static int nextID; 
         string number;
 };
+
 #endif

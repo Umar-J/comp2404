@@ -14,8 +14,8 @@ class Entity {
         // Destructor
         ~Entity(); 
 
-        List* getMessageHistory();
-        Location& getLocation();
+        List* getMessageHistory() const;
+        const Location& getLocation() const;
         int getNumMessages() const;
         bool equals(const string& id) const;
         virtual void print() const;

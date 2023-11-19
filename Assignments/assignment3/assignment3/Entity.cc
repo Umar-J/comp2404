@@ -17,11 +17,11 @@ int Entity::getNumMessages() const{
 bool Entity::equals(const string& id) const{
     return this->id == id;
 }
-Location& Entity::getLocation() {
+const Location& Entity::getLocation() const {
     return location;
 }
-List* Entity::getMessageHistory() {
-    return &messageHistory;
+List* Entity::getMessageHistory() const{
+    return (List*)&messageHistory;
 }
 void Entity::print() const{
     cout << "Entity: " << id << endl;

@@ -23,40 +23,57 @@ void Network::addTower(const Location& loc){
     Tower* newTower = new Tower(loc);
     towers.push_back(newTower); //dynamic memory so free later
 }
+int i = 1;
+
 
 void Network::routeMessage(const Message& message){
     //message contain ID of sender and reciever
     string sender = message.getSender();
     string reciever = message.getReciever();
     //find cellphone with sender or reciever (id- the one in entity.h)
-    bool flag = true;
-    for (CellPhone* phone : cellPhones) {
-        //since spec says "if both exist add to both"
-        if(phone->equals(sender)){
-            //add message to message history of sender and reciever
-            phone->addMessage(message);
 
-            if(getClosestTower(phone->getLocation())){//checks null
-                getClosestTower(phone->getLocation())->addMessage(message);
-            }
 
-            flag = false;
-        }
-        else if(phone->equals(reciever)){
-            //add message to message history of sender and reciever
-            phone->addMessage(message);
+     bool flag = true;
+     Tower* senderTower = nullptr;
+     Tower* recieverTower = nullptr;
+     // if both use same tower then it will only add to one
+     for (CellPhone* phone : cellPhones) {
+         cout<<i<<endl;
+         //since spec says "if both exist add to both"
+         if(phone->equals(sender)){
+             //add message to message history of sender and reciever
+             phone->addMessage(message);
 
-            if(getClosestTower(phone->getLocation())){//checks null
-                getClosestTower(phone->getLocation())->addMessage(message);
-            }
-            flag = false;
-        }
-        
-    }
-    if (flag){
-        //no phones exist
-        cout<<"Could not find phones"<<endl;
-    }
+             if(getClosestTower(phone->getLocation())&& getClosestTower(phone->getLocation())!= recieverTower){//checks null
+                 getClosestTower(phone->getLocation())->addMessage(message);
+                //                 cout<<"added to tower"<<endl;
+                 getClosestTower(phone->getLocation())->getLocation().print(); //testing
+                 cout<<endl;
+                 senderTower = getClosestTower(phone->getLocation());
+             }
+
+             flag = false;
+         }
+         if(phone->equals(reciever)){
+             //add message to message history of sender and reciever
+             phone->addMessage(message);
+
+             if(getClosestTower(phone->getLocation()) && getClosestTower(phone->getLocation())!= senderTower){//checks null
+                 getClosestTower(phone->getLocation())->addMessage(message);
+                 //cout<<"added to tower"<<endl;
+                 getClosestTower(phone->getLocation())->getLocation().print();
+                  cout<<endl;
+                recieverTower = getClosestTower(phone->getLocation());
+
+             }
+             flag = false;
+         }
+      
+     }
+     if (flag){
+         //no phones exist
+         cout<<"Could not find phones"<<endl;
+     }
 }
 
 
@@ -122,7 +139,7 @@ void Network::printCellPhones() const{
 
 
 
-CellPhone* Network::getCellphone(const string& id, vector<CellPhone*> cellPhones){
+CellPhone* Network::getCellphone(const string& id, vector<CellPhone*> cellPhones)const {
     // if sender is same then it only returns the same one everytime
     for (CellPhone* phone : cellPhones) {
         if(phone->equals(id)){
@@ -131,7 +148,7 @@ CellPhone* Network::getCellphone(const string& id, vector<CellPhone*> cellPhones
     }
     return nullptr;// check null
 }
-Tower* Network::getTower(const string& id, vector<Tower*> towers){
+Tower* Network::getTower(const string& id, vector<Tower*> towers) const{
     for (Tower* tower : towers) {
         if(tower->equals(id)){
             return tower;
