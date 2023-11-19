@@ -1,9 +1,9 @@
 #include "CellPhone.h"
 
-int CellPhone::nextID = 0;
-const char CellPhone::code = 'T';
+int CellPhone::nextID = 1;
+const char CellPhone::code = 'C';
 
-CellPhone::CellPhone(string iNumber, Location & iLocation): Entity(code, nextID, iLocation){
+CellPhone::CellPhone(string iNumber, const Location& iLocation): Entity(code, nextID, iLocation){
     number = iNumber;
     nextID++;
 }

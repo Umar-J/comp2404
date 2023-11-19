@@ -18,7 +18,7 @@ public:
     string getReciever() const{
         return reciever;
     };
-    //string getContent() const;
+    
 
     void print() const;
 

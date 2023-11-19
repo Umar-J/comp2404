@@ -59,7 +59,10 @@ int towerIdTest(){
 
     int error = 0;
     tester.findInOrder({0,1,2,3,4}, strs, error);
-
+  for (int i = 0; i < ARR; ++i){
+        delete towers[i];
+    }
+    
     if (error>0){
       cout << "At least one id not found in order, or not found at all" << endl;
       return 1;
@@ -88,6 +91,10 @@ int cellPhoneIdTest(){
 
     int error = 0;
     tester.findInOrder({0,1,2,3,4}, strs, error);
+
+    for (int i = 0; i < ARR; ++i){
+        delete cellPhones[i];
+    }
 
     if (error>0){
       cout << "At least one id not found in order, or not found at all" << endl;
@@ -133,6 +140,7 @@ int messageTest(){
 
     tester.findInOrder(keys, strs, error);
 
+    delete t;
     if (error>0){
       cout << "At least one message not found in order, or not found at all" << endl;
       return 1;
@@ -148,6 +156,7 @@ int messageTest(){
     c->getMessageHistory()->print();
     tester.endCapture();
     tester.findInOrder(keys, strs, error);
+    delete c;
 
     if (error>0){
       cout << "At least one message not found in order, or not found at all" << endl;

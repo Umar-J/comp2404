@@ -10,8 +10,8 @@
 
 class Tower: public Entity {
     public:
-        Tower(Location& = Location(0,0));
-        void resetID();  
+        Tower(const Location& loc = *(new Location(0, 0)));
+        static void resetID();  
         virtual void print() const;    
     private:
         static const char code;

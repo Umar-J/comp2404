@@ -1,0 +1,117 @@
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+
+Tower id test
+
+Executing: ./test
+
+What test would you like to run?
+  (0) Tower id test.
+  (1) CellPhone id test.
+  (2) Message test.
+
+This test will print out 5 towers and verify their id numbers.
+
+Tower: T5
+Location: 0th Ave and 0th Ave
+Number of messages: 0
+Tower: T1
+Location: 0th Ave and 0th Ave
+Number of messages: 0
+Tower: T2
+Location: 0th Ave and 0th Ave
+Number of messages: 0
+Tower: T4
+Location: 0th Ave and 0th Ave
+Number of messages: 0
+Tower: T3
+Location: 0th Ave and 0th Ave
+Number of messages: 0
+
+
+Test passed
+
+CellPhone id test
+
+Executing: ./test
+
+What test would you like to run?
+  (0) Tower id test.
+  (1) CellPhone id test.
+  (2) Message test.
+
+This test will print out 5 cellphones and verify their id numbers.
+
+CellPhone: C5
+Location: 0th Ave and 0th Ave
+Number of messages: 0
+Phone Number: (567) 890-1234
+CellPhone: C1
+Location: 0th Ave and 0th Ave
+Number of messages: 0
+Phone Number: (123) 456-7890
+CellPhone: C2
+Location: 0th Ave and 0th Ave
+Number of messages: 0
+Phone Number: (234) 567-8901
+CellPhone: C4
+Location: 0th Ave and 0th Ave
+Number of messages: 0
+Phone Number: (456) 789-0123
+CellPhone: C3
+Location: 0th Ave and 0th Ave
+Number of messages: 0
+Phone Number: (345) 678-9012
+
+
+Test passed
+
+Message test
+
+Executing: ./test
+
+What test would you like to run?
+  (0) Tower id test.
+  (1) CellPhone id test.
+  (2) Message test.
+
+This will add 3 messages to the tower and cellphone, then print them out.
+
+
+Adding 3 messages...
+(sender) From: C1
+(reciever) To: C2
+(message) Message: Hello Kyle
+(sender) From: C2
+(reciever) To: C1
+(message) Message: Hello Elsa
+(sender) From: C1
+(reciever) To: C3
+(message) Message: Hello Bonnie
+All tower messages found (in order)
+
+Adding 3 messages to cellphone...
+(sender) From: C1
+(reciever) To: C2
+(message) Message: Hello Kyle
+(sender) From: C2
+(reciever) To: C1
+(message) Message: Hello Elsa
+(sender) From: C1
+(reciever) To: C3
+(message) Message: Hello Bonnie
+All cellphone messages found (in order)
+
+
+
+Test passed
+
+
+***************************************************************************
+* Mark: 6/6
+***************************************************************************
+

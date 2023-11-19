@@ -1,9 +1,9 @@
 #include "Tower.h"
 
-int Tower::nextID = 0;
+int Tower::nextID = 1;
 const char Tower::code = 'T';
 
-Tower::Tower(Location & iLocation): Entity(code, nextID, iLocation){
+Tower::Tower(const Location & iLocation): Entity(code, nextID, iLocation){
     nextID++;
 }
 

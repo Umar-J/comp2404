@@ -10,10 +10,11 @@
 
 class CellPhone: public Entity {
     public:
-        CellPhone(string, Location& = Location(0,0));
-        void resetID();  
+        CellPhone(string, const Location&);
+        static void resetID();  
         virtual void print() const;    
         void setLocation(Location&);
+        //adds mesage to messages if it has the same id as this(s or r)
         void getMessagesWith(const string& id, List& messages);
 
     private:
