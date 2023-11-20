@@ -1,46 +1,44 @@
 #include "List.h"
-#include "Message.h"
-List::List():head(nullptr),tail(nullptr) {}
+
+List::List(){
+    head = NULL;
+    tail = NULL;
+    size = 0;
+}
 
 List::~List(){
-    Node* curr = head;
-    Node* prev;
-    
-    while(curr!= nullptr){
-        prev = curr;
-        curr = curr->next;
-        delete prev;
+    Node* current;
+    while (head != nullptr){
+        current = head;
+        head = head->next;
+        delete current;
     }
 }
 
 bool List::isEmpty() const{
-    return head == nullptr; //if head is null means nothing in it
+    return size == 0;
 }
 
 int List::getSize() const{
-    Node* curr = head;
-    int count = 0;
-    while(curr!= nullptr){
-        curr = curr->next;
-        count++;
-    }
-    return count;
+    return size;
 }
+
+
 Message *List::removeFirst(){
-    Node* curr = head;
-    if(curr){
-        Message* goner = curr->data;
-        head = curr->next; //head is now the next node
-        delete curr;
-        // Ensure that you delete the 'goner' object when it's no longer needed
+    Node* current = head;
+    if(current){
+        Message* goner = current->data;
+        head = current->next; 
+        delete current;
+        --size;
         return goner;
     }
     return nullptr;
 }
 
-void List::add(Message * msg){
+void List::add(Message * message){
     Node* newNode = new Node;
-    newNode->data = msg;
+    newNode->data = message;
     newNode->next = nullptr;
     if (head == nullptr) { //if empty then...
         head = newNode;
@@ -49,61 +47,60 @@ void List::add(Message * msg){
         tail->next = newNode;
         tail = newNode;
     }
+    ++size;
 }
 
 void List::print() const{
-    Node* curr = head;
-    while(curr!= nullptr){
-        curr->data->print();
-        curr = curr->next;
+    cout << "Printing Messages from the list... " << endl;
+    Node* current = head;
+    while (current != nullptr){
+        current->data->print();
+        current = current->next;
     }
 }
 
-void List::getMessagesWith(const string &id, List &outputList){
-    Node* curr = head;
-    while(curr!= nullptr){
-        if(curr->data->getReciever() == id || curr->data->getSender() == id){
-            outputList.add(curr->data);
+void List::getMessagesWith(const string& id, List& outputList){
+    Node* current = head;
+    while (current != nullptr){
+        if (current->data->getSender() == id || current->data->getReceiver() == id){
+            outputList.add(current->data);
         }
-        curr = curr->next; // advance the pointer
+        current = current->next;
     }
 }
 
-void List::getMessagesWith(const string &id1, const string &id2, List &outputList){
-    Node* curr = head;
-    while(curr!= nullptr){
-        if(curr->data->getReciever() == id1 && curr->data->getSender() == id2){
-            outputList.add(curr->data);
-        }else if (curr->data->getReciever() == id2 && curr->data->getSender() == id1){
-            outputList.add(curr->data);
+void List::getMessagesWith(const string& id1, const string& id2, List& outputList){
+    Node* current = head;
+    while (current != nullptr){
+        if (current->data->getSender() == id2 || current->data->getReceiver() == id1 ){
+            outputList.add(current->data);
+        }else if (current->data->getReceiver() == id2 && current->data->getSender() == id1){
+            outputList.add(current->data);
         }
-        curr = curr->next;
-    }    
+        current = current->next;
+    }
 }
 
-void List::removeMessagesWith(const string &id, List &outputList){
-    Node* curr = head;
-    Node* prev = nullptr;
-    Node* deleting = nullptr;
-    if (curr == nullptr){
-        return;
-    }
-    while(curr!= nullptr){
+void List::removeMessagesWith(const string& id,List& outputList){
+    Node* current = head;
+    Node* previous = nullptr;
 
-        if(curr->data->getReciever() == id || curr->data->getSender() == id){
-            if(prev == nullptr){
-                head = curr->next;
-            }else{
-                prev->next = curr->next;
+    while (current != nullptr){
+        Node* removing = current;
+        if (current->data->getSender() == id || current->data->getReceiver() == id){
+            outputList.add(current->data);
+            if (previous == nullptr) {
+                head = current->next;
+                current = head;
+            }else if (previous != nullptr){
+                previous->next = current->next;
+                current = current->next;
             }
-            deleting = curr;
-            curr = curr->next;
-            outputList.add(deleting->data); //makes a copy in outputlist
-            deleting->next = nullptr; 
-            delete deleting;
+            delete removing;
+            --size;
         }else{
-            prev = curr;
-            curr = curr->next;
+            previous = current;
+            current = current->next;
         }
     }
 }

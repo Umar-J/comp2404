@@ -15,8 +15,7 @@ public:
     string getSender() const{
         return sender;
     };
-    
-    string getReceiver() const{
+    string getReciever() const{
         return reciever;
     };
     

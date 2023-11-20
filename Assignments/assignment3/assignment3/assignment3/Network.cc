@@ -29,13 +29,12 @@ int i = 1;
 void Network::routeMessage(const Message& message){
     //message contain ID of sender and reciever
     string sender = message.getSender();
-    string reciever = message.getReceiver();
+    string reciever = message.getReciever();
     //find cellphone with sender or reciever (id- the one in entity.h)
 
 
      bool flag = true;
      Tower* senderTower = nullptr;
-     Tower* recieverTower = nullptr;
      // if both use same tower then it will only add to one
      for (CellPhone* phone : cellPhones) {
          cout<<i<<endl;
@@ -44,7 +43,7 @@ void Network::routeMessage(const Message& message){
              //add message to message history of sender and reciever
              phone->addMessage(message);
 
-             if(getClosestTower(phone->getLocation())&& getClosestTower(phone->getLocation())!= recieverTower){//checks null
+             if(getClosestTower(phone->getLocation())){//checks null
                  getClosestTower(phone->getLocation())->addMessage(message);
                 //                 cout<<"added to tower"<<endl;
                  getClosestTower(phone->getLocation())->getLocation().print(); //testing
@@ -63,8 +62,6 @@ void Network::routeMessage(const Message& message){
                  //cout<<"added to tower"<<endl;
                  getClosestTower(phone->getLocation())->getLocation().print();
                   cout<<endl;
-                recieverTower = getClosestTower(phone->getLocation());
-
              }
              flag = false;
          }
@@ -95,7 +92,7 @@ void Network::moveCellPhone(const string& id, const Location& loc){
     }
 }
 
-bool Network::getMessageHistory(const string& id, const List** messages) const{
+bool Network::getMessageHistory(const string& id, const List** messages){
     if(getCellphone(id, cellPhones)){
         *messages = getCellphone(id, cellPhones)->getMessageHistory();
         return true;
@@ -107,7 +104,7 @@ bool Network::getMessageHistory(const string& id, const List** messages) const{
         }
 
 }
-void Network::getMessagesWith(const string& id1, const string& id2, List& outputList)const{
+void Network::getMessagesWith(const string& id1, const string& id2, List& outputList){
     //it will add duplicates unfortunately but we dont have to check?????
     for(CellPhone* phone : cellPhones){
         phone->getMessageHistory()->getMessagesWith(id1,id2,outputList);

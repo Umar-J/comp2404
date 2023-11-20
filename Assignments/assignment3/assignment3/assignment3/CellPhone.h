@@ -15,7 +15,7 @@ class CellPhone: public Entity {
         virtual void print() const;    
         void setLocation(const Location&);
         //adds mesage to messages if it has the same id as this(s or r)
-        void getMessagesWith(const string& id, List& messages) const;
+        void getMessagesWith(const string& id, List& messages);
 
     private:
         static const char code;

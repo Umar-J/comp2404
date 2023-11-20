@@ -25,7 +25,7 @@ void CellPhone::setLocation(const Location &iLocation){
     location = iLocation;
 }
 
-void CellPhone::getMessagesWith(const string& id, List& messages) const{
+void CellPhone::getMessagesWith(const string& id, List& messages){
     //gets this's messages      gets messeages with id  adds to mesages list (return parameter)
     this->getMessageHistory()->getMessagesWith(id, messages);
 }
