@@ -2,7 +2,7 @@
 #define AUDIOPLAYER_H
 #include <iostream>
 #include <string>
-#include "PodifyPlayer.h"
+#include "PodcastPlayer.h"
 using namespace std;
 
 
@@ -12,29 +12,6 @@ class AudioPlayer: public PodcastPlayer{
         virtual void play(const Episode& m, ostream& ost);
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #endif

@@ -1,13 +1,23 @@
 #include "Podify.h"
 
-
+Podify::~Podify(){
+    for (int i =0; i< podcasts.getSize();i++){ //loop podcasts
+        for (int j =0; j< podcasts[i]->getSize();j++){ //loop episodes
+            delete podcasts[i]->get(j);
+        }
+    }
+    for(int i =0; i < podcasts.getSize(); i++){
+        delete podcasts[i];
+    }
+     
+}
 void Podify::addPodcast(Podcast *p){
-    podcasts+=p;
+    podcasts+=p; // this is dynamic, needs to be deleted
 }
 void Podify::addEpisode(Episode* e, const string& podcastTitle){
     for(int i =0; i < podcasts.getSize(); i++){
         if (podcasts[i]->equals(podcastTitle)){
-            podcasts[i]->addEpisode(e);
+            podcasts[i]->addEpisode(e); // this is dynamic, needs to be deleted
         }
     }
 }

@@ -26,7 +26,7 @@ class Array {
 		bool isFull() const;
 		Array<T>& operator+=(const T& s);
 		Array<T>& operator-=(const T& s);
-		Array<T>& operator=(const Array<T>& newArray);
+		Array<T>& operator=(const Array<T>& cArray);
 		const T& operator[](int index) const;
 		T& operator[](int index);
 		void clear();
@@ -38,27 +38,26 @@ class Array {
 	
 };
 template <class T>
-Array<T>::Array(const Array<T>& newArray){
-	numElements = newArray.numElements;
-	
+Array<T>::Array(const Array<T>& cArray){
+	numElements = cArray.numElements;
 	elements = new T[MAX_ARR]; // Allocate memory for elements
-	// Copy elements from newArray to this array
+	// Copy elements from cArray to this array
 	for (int i = 0; i < numElements; i++){
-		elements[i] = newArray.elements[i];
+		elements[i] = cArray.elements[i];
 	}
 }
 
 template <class T>
-Array<T>& Array<T>::operator=(const Array<T>& newArray){
-	if (this == &newArray) {
+Array<T>& Array<T>::operator=(const Array<T>& cArray){
+	if (this == &cArray) {
 		return *this; // Check for self-assignment
 	}
-	numElements = newArray.numElements;
+	numElements = cArray.numElements;
 	delete[] elements; // Deallocate memory for existing elements
 	elements = new T[MAX_ARR]; // Allocate memory for new elements
-	// Copy elements from newArray to this array
+	// Copy elements from cArray to this array
 	for (int i = 0; i < numElements; i++){
-		elements[i] = newArray.elements[i];
+		elements[i] = cArray.elements[i];
 	}
 	return *this;
 }

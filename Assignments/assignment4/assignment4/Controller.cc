@@ -73,19 +73,19 @@ void Controller::initFromFile(){
         numEpisodes = stoi(temp);
         //this one should be an integer representing the 
         //number of episodes on this podcast
-        av.addPodcast(pf.createPodcast(podcast, host));
+        av.addPodcast(pf.createPodcast(podcast, host)); // this is dynamic memory so it needs to be deleted
         for (int i = 0; i < numEpisodes; ++i){
             getline(episodeFile, title);
-            Episode* episode = pf.createEpisode(podcast, host, title);
+            Episode* episode = pf.createEpisode(podcast, host, title); //dynamic
             if (episode == nullptr){
                 cout<<"WARNING*** Episode "<<title<< " not found"<<endl;
                 continue;
             }
-            av.addEpisode(episode, podcast);
+            av.addEpisode(episode, podcast); //dynamic
         }
         
     }
-
+    
     episodeFile.close();
     
 }

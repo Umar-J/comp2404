@@ -11,6 +11,7 @@ using namespace std;
 class Podify{
     friend ostream& operator<<(ostream& os, const Podify& P);
     public:
+        ~Podify();
         void addPodcast(Podcast* p);
         void addEpisode(Episode* e, const string& podcastTitle);
         const Array<Podcast*> getPodcasts() const;

@@ -36,6 +36,7 @@ void TestControl::launch(){
             case 7: tester.recordMark(7, testAllAndMark(), 22); break;
         }
     }
+    
     std::cout<<"exiting program!!!"<<endl;
 }
 

@@ -1,10 +1,7 @@
 objects = main.o View.o Controller.o Podify.o Podcast.o Episode.o PodcastPlayer.o PodcastFactory.o Search.o
 testobjects = test.o View.o TestControl.o Tester.o Podify.o Podcast.o Episode.o PodcastPlayer.o PodcastFactory.o Search.o
 
-all: a4 test test2
-
-test2: $(testobjects)
-	g++ -g $(testobjects) -o test2
+all: a4 test
 
 a4: $(objects)
 	g++ -o a4 $(objects)
