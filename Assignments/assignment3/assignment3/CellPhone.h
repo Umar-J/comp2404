@@ -4,8 +4,6 @@
 #include <iostream>
 #include <string>
 
-#include "Location.h"
-#include "List.h"
 #include "Entity.h"
 
 class CellPhone: public Entity {

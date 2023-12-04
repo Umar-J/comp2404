@@ -5,7 +5,6 @@
 #include <string>
 #include "CellPhone.h"
 #include "Tower.h"
-#include "List.h"
 #include <vector>
 
 

@@ -6,65 +6,49 @@ void Network::addCellPhone(const string& number, const Location& loc ){
     cellPhones.push_back(newCellPhone); //dynamic memory so free later
 }
 Network::~Network(){
-        // Free memory allocated for CellPhone objects
-    for (CellPhone* phone : cellPhones) {
-        delete phone; // Delete each dynamically allocated CellPhone
-    }
-    cellPhones.clear(); // Clear the vector (optional)
 
-        // Free memory allocated for Tower objects
-    for (Tower* tower : towers) {
-        delete tower; // Delete each dynamically allocated CellPhone
+    for (CellPhone* phone : cellPhones) {
+        delete phone; 
     }
-    towers.clear(); // Clear the vector (optional)
+    cellPhones.clear(); 
+
+    for (Tower* tower : towers) {
+        delete tower; 
+    }
+    towers.clear(); 
 }
 void Network::addTower(const Location& loc){
     //  create new tower
     Tower* newTower = new Tower(loc);
-    towers.push_back(newTower); //dynamic memory so free later
+    towers.push_back(newTower); 
 }
-int i = 1;
-
 
 void Network::routeMessage(const Message& message){
-    //message contain ID of sender and reciever
     string sender = message.getSender();
     string reciever = message.getReceiver();
-    //find cellphone with sender or reciever (id- the one in entity.h)
-
-
-     bool flag = true;
-     Tower* senderTower = nullptr;
-     Tower* recieverTower = nullptr;
+    bool flag = true;
+    Tower* senderTower = nullptr;
+    Tower* recieverTower = nullptr;
      // if both use same tower then it will only add to one
-     for (CellPhone* phone : cellPhones) {
-         cout<<i<<endl;
+    for (CellPhone* phone : cellPhones) {
          //since spec says "if both exist add to both"
-         if(phone->equals(sender)){
+        if(phone->equals(sender)){
              //add message to message history of sender and reciever
-             phone->addMessage(message);
+            phone->addMessage(message);
 
-             if(getClosestTower(phone->getLocation())&& getClosestTower(phone->getLocation())!= recieverTower){//checks null
-                 getClosestTower(phone->getLocation())->addMessage(message);
-                //                 cout<<"added to tower"<<endl;
-                 getClosestTower(phone->getLocation())->getLocation().print(); //testing
-                 cout<<endl;
-                 senderTower = getClosestTower(phone->getLocation());
-             }
+            if(getClosestTower(phone->getLocation())&& getClosestTower(phone->getLocation())!= recieverTower){//checks null
+                getClosestTower(phone->getLocation())->addMessage(message);
+                senderTower = getClosestTower(phone->getLocation());
+            }
 
-             flag = false;
+            flag = false;
          }
          if(phone->equals(reciever)){
              //add message to message history of sender and reciever
              phone->addMessage(message);
-
              if(getClosestTower(phone->getLocation()) && getClosestTower(phone->getLocation())!= senderTower){//checks null
                  getClosestTower(phone->getLocation())->addMessage(message);
-                 //cout<<"added to tower"<<endl;
-                 getClosestTower(phone->getLocation())->getLocation().print();
-                  cout<<endl;
                 recieverTower = getClosestTower(phone->getLocation());
-
              }
              flag = false;
          }
@@ -108,7 +92,6 @@ bool Network::getMessageHistory(const string& id, const List** messages) const{
 
 }
 void Network::getMessagesWith(const string& id1, const string& id2, List& outputList)const{
-    //it will add duplicates unfortunately but we dont have to check?????
     for(CellPhone* phone : cellPhones){
         phone->getMessageHistory()->getMessagesWith(id1,id2,outputList);
     }
@@ -134,13 +117,7 @@ void Network::printCellPhones() const{
     }
 }
 
-
-
-
-
-
 CellPhone* Network::getCellphone(const string& id, vector<CellPhone*> cellPhones)const {
-    // if sender is same then it only returns the same one everytime
     for (CellPhone* phone : cellPhones) {
         if(phone->equals(id)){
             return phone;
