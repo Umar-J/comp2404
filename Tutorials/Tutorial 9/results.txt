@@ -1,0 +1,111 @@
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+Executing: ./test9
+Testing add and remove
+Adding 10 episodes 7 days apart
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 1
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 2
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 3
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 4
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 5
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 6
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 7
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 8
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 9
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 10
+
+getSize is 10, correct
+Array is not full, correct
+Remove every second episode:
+getSize is 5, correct
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 2
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 4
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 6
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 8
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 10
+
+Remove all but 2 episodes:
+Printing 2 episodes:
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 8
+
+Podcast Title: The Podcast
+Host         : The Host
+Category     : Category
+Episode Title: Episode 10
+
+Episodes are correct
+Deleting 10 episodes
+
+
+Test passed
+
+
+***************************************************************************
+* Mark: 4/4
+***************************************************************************
+

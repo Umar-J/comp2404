@@ -1,0 +1,192 @@
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+Executing: ./test
+Attempting to match:
+
+this matches an episode with the given host:  Bob
+
+with
+
+Podcast Title: Bob Talk
+Host         : Bob
+Category     : talk
+Episode Title: The one where bob talks
+
+Should match
+Matched
+Test passed
+
+Attempting to match:
+
+this matches an episode with the given host:  Alice
+
+with
+
+Podcast Title: Bob Talk
+Host         : Bob
+Category     : talk
+Episode Title: The one where bob talks
+
+Should not match
+Did not match
+Test passed
+
+Testing host Search passed
+
+
+
+Executing: ./test
+Attempting to match:
+
+this matches an episode with the given category:  Talk
+
+with
+
+Podcast Title: Bob Talk
+Host         : Bob
+Category     : Talk
+Episode Title: The one where bob talks
+
+Should match
+Matched
+Test passed
+
+Attempting to match:
+
+this matches an episode with the given category:  People
+
+with
+
+Podcast Title: Bob Talk
+Host         : Bob
+Category     : Talk
+Episode Title: The one where bob talks
+
+Should not match
+Did not match
+Test passed
+
+Testing category Search passed
+
+
+
+Executing: ./test
+Attempting to match:
+
+this matches an episode with the given category:  Animal
+ or 
+this matches an episode with the given host:  Bob
+
+with
+
+Podcast Title: Bob Talk
+Host         : Bob
+Category     : Talk
+Episode Title: The one where bob talks
+
+Should match
+Matched
+Test passed
+
+Attempting to match:
+
+this matches an episode with the given category:  Animal
+ or 
+this matches an episode with the given host:  Alice
+
+with
+
+Podcast Title: Bob Talk
+Host         : Bob
+Category     : Talk
+Episode Title: The one where bob talks
+
+Should not match
+Did not match
+Test passed
+
+Attempting to match:
+
+this matches an episode with the given category:  Talk
+ or 
+this matches an episode with the given host:  Cindy
+
+with
+
+Podcast Title: Bob Talk
+Host         : Bob
+Category     : Talk
+Episode Title: The one where bob talks
+
+Should match
+Matched
+Test passed
+
+Attempting to match:
+
+this matches an episode with the given category:  People
+ or 
+this matches an episode with the given host:  Alice
+
+with
+
+Podcast Title: Bob Talk
+Host         : Bob
+Category     : Talk
+Episode Title: The one where bob talks
+
+Should not match
+Did not match
+Test passed
+
+Attempting to match:
+
+this matches an episode with the given category:  Talk
+ or 
+this matches an episode with the given host:  Bob
+
+with
+
+Podcast Title: Bob Talk
+Host         : Bob
+Category     : Talk
+Episode Title: The one where bob talks
+
+Should match
+Matched
+Test passed
+
+Testing host or category Search passed
+
+
+
+Executing: ./test
+this matches an episode with the given host:  Bob
+
+Bob found in output, test passed
+
+this matches an episode with the given category:  Animal
+
+Animal found in output, test passed
+
+Do you see the 'or' on the previous line? Stringstream bug? Can't seem to shake it.
+
+this matches an episode with the given category:  People
+ or 
+this matches an episode with the given host:  Alice
+
+
+Alice and People found in output, test passed
+
+
+
+
+
+***************************************************************************
+* Mark: 12/12
+***************************************************************************
+

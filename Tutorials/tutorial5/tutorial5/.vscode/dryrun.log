@@ -1,9 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/darryl/Dropbox/classes21/comp2404/tutorials-f22/tutorial5/tutorial5'
-g++ -c test.cc
-g++ -c SongArray.cc
-g++ -c Song.cc
-g++ -c Album.cc 
-g++ -o test test.o SongArray.o Song.o Album.o 
-make: Leaving directory '/home/darryl/Dropbox/classes21/comp2404/tutorials-f22/tutorial5/tutorial5'
- 
